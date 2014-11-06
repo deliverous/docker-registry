@@ -10,6 +10,10 @@ RUN apt-get update \
 
 RUN pip install docker-registry==0.9.0
 
+
+ENV DOCKER_REGISTRY_CONFIG /config/registry.yml
+ENV SETTINGS_FLAVOR production
+
 EXPOSE 5000
 VOLUME /config
 
