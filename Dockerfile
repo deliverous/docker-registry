@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:trusty
 
 RUN apt-get update \
     && apt-get install -y \
@@ -6,10 +6,8 @@ RUN apt-get update \
         python-dev \
         liblzma-dev \
         libevent1-dev \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN pip install docker-registry==0.9.0
-
+    && rm -rf /var/lib/apt/lists/* \
+    && pip install docker-registry==0.9.0
 
 ENV DOCKER_REGISTRY_CONFIG /config/registry.yml
 ENV SETTINGS_FLAVOR production
